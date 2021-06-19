@@ -7,35 +7,28 @@
 
   import "./planner.css"
 
-  import { trip } from "../stores.js"
+  import { selectedTrip } from "../stores.js"
 
 
 </script>
 
 <style>
-  .book-it-button {
-    background-color: #ECB390;
-    border-radius: 5px;
-    padding: 5px 25px;
-    font-size: 16px;
-    margin: 25px;
-  }
 
 </style>
 
 <h2>Trip Planner</h2>
 <form action="">
-  <TextInput label="Title" name="title" data={$trip.title}/>
-  <TextInput label="Area" name="area" data={$trip.area}/>
-  <DateInput label="Start Date" name="startDate" data={$trip.startDate}/>
-  <DateInput label="End Date" name="endDate" data={$trip.endDate}/>
-  <TextAreaInput label="Description" name="description" data={$trip.description}/>
-  <!-- <ListInput label="Required Skills" name="skills" data={$trip.skills}/> -->
-  <NumberInput label="Distance" name="distance" data={$trip.distance}/>
-  <NumberInput label="Elevation" name="elevation" data={$trip.elevation}/>
-  <NumberInput label="Max Group Size" name="groupSize" data={$trip.groupSize}/>
-  <TextAreaInput label="Muster Point" name="muster" data={$trip.muster}/>
-  <TextAreaInput label="Regulations" name="regs" data={$trip.regs}/>
-  <ListInput label="Gear List" name="gearList" data={Object.values($trip.gearList)}/>
-  <input type="submit" class="book-it-button" value="Put it on the books!">
+  <TextInput label="Title" name="title" data={$selectedTrip.title}/>
+  <TextInput label="Area" name="area" data={$selectedTrip.area}/>
+  <DateInput label="Start Date" name="startDate" data={$selectedTrip.startDate}/>
+  <DateInput label="End Date" name="endDate" data={$selectedTrip.endDate}/>
+  <TextAreaInput label="Description" name="description" data={$selectedTrip.description}/>
+  <!-- <ListInput label="Required Skills" name="skills" data={$selectedTrip.skills}/> -->
+  <NumberInput label="Distance" name="distance" data={$selectedTrip.distance}/>
+  <NumberInput label="Elevation" name="elevation" data={$selectedTrip.elevation}/>
+  <NumberInput label="Max Group Size" name="groupSize" data={$selectedTrip.groupSize}/>
+  <TextAreaInput label="Muster Point" name="muster" data={$selectedTrip.muster}/>
+  <TextAreaInput label="Regulations" name="regs" data={$selectedTrip.regs}/>
+  <ListInput label="Gear List" name="gearList" data={Object.values($selectedTrip.gearList)}/>
+  <button type="submit" class="submit-button">Put it on the books!</button>
 </form>

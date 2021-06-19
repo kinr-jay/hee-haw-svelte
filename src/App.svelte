@@ -1,6 +1,6 @@
 <script>
 	// Component and Route Imports
-	import { Router, Route } from "svelte-navigator"
+	import { Router, Route } from "svelte-routing"
 	import Header from "./components/Header.svelte"
 	import Login from "./routes/Login.svelte"
 	import Register from "./routes/Register.svelte"
@@ -27,10 +27,8 @@
 		<!-- {#if loggedIn} -->
 		<Route path="/register" component={Register}/>
 		<Route path="/planner" component={Planner}/>
-		<Route path="/calendar/*" let:params>
-			<Route path=":tripId" component={TripPage}/>
-			<Route path="" component={Calendar}/>
-		</Route>
+		<Route path="/calendar/:tripId" component={TripPage}/>
+		<Route path="/calendar" component={Calendar}/>
 		<Route path="/account" component={Account}/>
 		<!-- {/if} -->
 	</main>
@@ -50,12 +48,5 @@
 			max-width: 650px;
 		}
 	}
-
-	/* h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	} */
 
 </style>

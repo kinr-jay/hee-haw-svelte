@@ -1,0 +1,102 @@
+export const seed = [
+  {
+    tripId: 1,
+    title: "Big Trees, Ragged Peaks",
+    description:
+      "In my minds eye! I can see us basking in the dappled sunlight flitting through the upper reaches of the canopy of the unequivocally GIANT! Sequoias. May we greet our reflections in the icy waters of the alpine, and PLUNGE! headfirst to be reborn as one with ourselves. And if we DARE! We will stand atop a jagged pile of rock that is both crumbling apart and vaulting skyward in a daring battle of planetary forces, where we will lean into the wind as it WHIPS! upward to deliver our shouts into the heavens!",
+    image: "https://farm1.staticflickr.com/85/223172389_ea8cb1fd1d_o.jpg",
+    startDate: "2021-08-02",
+    endDate: "2021-08-10",
+    area: "Sequoia National Park",
+    regs: "Max party: 15 (12 offtrail); Bear cannisters",
+    muster: "The Ace Hardware Store on Colfax",
+    distance: 25,
+    elevation: 8000,
+    groupSize: 10,
+    gearList: ["tent", "sleeping bag", "boots"],
+    team: [
+      {
+        userId: 3,
+        DeletedAt: null,
+        firstName: "Maisey",
+        lastName: "Jacobs",
+        trips: null,
+      },
+      {
+        userId: 1,
+        DeletedAt: null,
+        firstName: "Connor",
+        lastName: "Jacobs",
+        trips: null,
+      },
+    ],
+    report: "TBD",
+  },
+  {
+    tripId: 2,
+    title: "CMC BPX Macey Lakes / Colony Baldy",
+    description:
+      "Connor's 'Leader in Training' Trip into the Sangre de Cristo Mountains with the Colorado Mountain Club. This one-night backpack will hope to explore a lesser-travelled drainage on the east side of the range, home to the Macey Lakes. The morning of the second day will feature a spirited jaunt up loose talus and delicate tundra to the summit of Colony Baldy. From there we may be inspired to hoot and holler at those climbing our southern stalwart neighbor, Humboldt Peak. From there we return to the lakes, pack up camp, and depart in hopes of avoiding the weekend patriots.",
+    image:
+      "https://peakvisor.com/photo/d/db/Humboldt_Peak_from_near_south_colony_lakes_trailhead.jpg",
+    startDate: "2021-07-01",
+    endDate: "2021-07-02",
+    area: "San Isabel National Forest, Sangre de Cristo Wilderness Area",
+    regs: "Standard Wilderness Area regulations",
+    muster: "tbd",
+    distance: 16,
+    elevation: 4600,
+    groupSize: 4,
+    gearList: ["tent", "sleeping bag", "boots"],
+    team: [
+      {
+        userId: 1,
+        DeletedAt: null,
+        firstName: "Connor",
+        lastName: "Jacobs",
+        trips: null,
+      },
+    ],
+    report: "TBD",
+  },
+  {
+    tripId: 3,
+    title: "Post Wedding Hee-Haw",
+    description:
+      "Following the holy matrimony of Carly Jacobs and Dan Burt, a select number of special guests will accompany Connor on a glorious adventure into the Sangre de Cristo mountains. Details are yet to be determined, but the trip is planned for 3 nights. This will allow ample opportunities for sun bathing, lake bathing, tree bathing, and even the less well understood rock bathing. Currently it looks as though it will be the first backpacking trip for the illustrious Wesley Johnson, and so special considerations will be made to ensure he experiences at least a little bit of misery.",
+    image:
+      "https://static.rootsrated.com/image/upload/s--C0BiPQCl--/t_rr_large_traditional/oqprqxsy5wuhirctohnm.jpg",
+    startDate: "2021-09-13",
+    endDate: "2021-09-16",
+    area: "San Isabel National Forest, Sangre de Cristo Wilderness Area",
+    regs: "Standard Wilderness Area regulations",
+    muster: "tbd",
+    groupSize: 6,
+    gearList: [
+      "tent",
+      "sleeping bag",
+      "boots",
+      "sleeping pad",
+      "fly rod",
+      "whiskey",
+      "extra puffy",
+    ],
+    team: [
+      {
+        userId: 1,
+        DeletedAt: null,
+        firstName: "Connor",
+        lastName: "Jacobs",
+        trips: null,
+      },
+      {
+        userId: 4,
+        DeletedAt: null,
+        firstName: "Tiny",
+        lastName: "Scott",
+        trips: null,
+      },
+    ],
+    report: "TBD",
+  },
+]

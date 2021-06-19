@@ -36,10 +36,6 @@
     display: none;
   }
   input {
-    border: none;
-    border-bottom: 1px solid black;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
     margin: 5px 0;
   }
 

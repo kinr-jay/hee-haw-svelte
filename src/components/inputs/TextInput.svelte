@@ -14,8 +14,6 @@
   }
   input {
     flex-grow: 1;
-    border: none;
-    border-bottom: 1px solid black;
   }
 </style>
 

@@ -30,30 +30,20 @@ a:hover {
 input {
 	background-color: #D4E2D4;
 	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	border: none;
+	border-bottom: 1px solid black;
+	height: 20px;
+}
+
+.submit-button {
+	background-color: #ECB390;
+	border-radius: 5px;
+	padding: 5px 25px;
+	font-size: 16px;
+	margin: 25px;
 }
 
 textarea {
 	background-color: #D4E2D4;
-}
-
-input:disabled {
-	color: #ccc;
-}
-
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
 }

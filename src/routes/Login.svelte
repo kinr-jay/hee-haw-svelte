@@ -13,18 +13,6 @@
     align-items: baseline;
     justify-content: space-between;
   }
-  /* .email, .password {
-    margin-left: 20px;
-  } */
-  .submit {
-    border-radius: 10px;
-    padding: 5px 20px;
-    color: white;
-    background-color: blue;
-  }
-  .submit:hover {
-    background-color: blueviolet;
-  }
 </style>
 
 <h1>Login to join the Hee-Haw!</h1>
@@ -37,5 +25,5 @@
     password:
     <input type="password" class="password" id="password" placeholder="" bind:value={password}>
   </label>
-  <input type="submit" class="submit" value="Log In">
+  <button type="submit" class="submit-button">Log In</button>
 </form>

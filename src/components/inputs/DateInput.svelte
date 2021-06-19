@@ -14,10 +14,6 @@
     text-align: right;
     margin-right: 15px;
   }
-  input[type=date] {
-    border: none;
-    border-bottom: 1px solid black;
-  }
 </style>
 
 <div class="input-container">

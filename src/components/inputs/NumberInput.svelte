@@ -13,8 +13,6 @@
     margin-right: 15px;
   }
   input {
-    border: none;
-    border-bottom: 1px solid black;
     text-align: right;
     width: 60px;
   }
