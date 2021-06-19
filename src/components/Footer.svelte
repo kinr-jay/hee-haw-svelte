@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: blue;
+    background-color: #DF7861;
     padding: 25px 0 20px;
     height: 100px;
     justify-content: space-between;

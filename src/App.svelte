@@ -1,4 +1,5 @@
 <script>
+	// Component and Route Imports
 	import { Router, Route } from "svelte-navigator"
 	import Header from "./components/Header.svelte"
 	import Login from "./routes/Login.svelte"
@@ -9,12 +10,21 @@
 	import Account from "./routes/Account.svelte"
 	import Footer from "./components/Footer.svelte"
 
+	// Store Imports
+	import { logged } from "./stores.js"
+
+	let loggedIn
+	logged.subscribe(value => {
+		loggedIn = value
+	})
+
 </script>
 
-<Router>
+<Router primary={false}>
 	<Header />
 	<main>
 		<Route path="/" component={Login}/>
+		<!-- {#if loggedIn} -->
 		<Route path="/register" component={Register}/>
 		<Route path="/planner" component={Planner}/>
 		<Route path="/calendar/*" let:params>
@@ -22,6 +32,7 @@
 			<Route path="" component={Calendar}/>
 		</Route>
 		<Route path="/account" component={Account}/>
+		<!-- {/if} -->
 	</main>
 	<Footer />
 </Router>
@@ -30,8 +41,14 @@
 	main {
 		text-align: center;
 		padding: 1em;
-		max-width: 240px;
+		max-width: 300px;
 		margin: 0 auto;
+	}
+
+	@media only screen and (min-width: 475px) {
+		main {
+			max-width: 650px;
+		}
 	}
 
 	/* h1 {

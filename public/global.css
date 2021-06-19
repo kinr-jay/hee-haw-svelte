@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,100&display=swap');
+
 html, body {
 	position: relative;
 	width: 100%;
@@ -5,11 +7,11 @@ html, body {
 }
 
 body {
+	background-color: #FCF8E8;
 	color: #333;
 	margin: 0;
-	/* padding: 8px; */
 	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: 'Roboto', sans-serif;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -25,19 +27,13 @@ a:hover {
 	text-decoration: underline;
 }
 
-label {
-	display: block;
+input {
+	background-color: #D4E2D4;
+	font-family: 'Roboto', sans-serif;
 }
 
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+textarea {
+	background-color: #D4E2D4;
 }
 
 input:disabled {

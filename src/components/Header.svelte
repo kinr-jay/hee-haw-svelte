@@ -11,7 +11,7 @@
     align-items: center;
     /* width: 100%; */
     justify-content: space-between;
-    background-color: blue;
+    background-color: #DF7861;
   }
   .nav-links {
     flex-grow: 1;
@@ -27,7 +27,7 @@
 </style>
 
 <header>
-  <span class="logo">Hee-Haw</span>
+  <Link to="/" ><span class="logo">Hee-Haw</span></Link>
   <div class="nav-links">
     <Link to="/planner">Plan a Trip</Link>
     <Link to="/calendar">Calendar</Link>
