@@ -1,7 +1,5 @@
 <script>
-  import {selectedTrip} from "../stores.js"
-
-
+  import {selectedTrip} from "../tripStores.js"
 
 </script>
 

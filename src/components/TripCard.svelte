@@ -1,6 +1,6 @@
 <script>
   import { navigate } from "svelte-routing"
-  import { selectedTrip } from "../stores.js"
+  import { selectedTrip } from "../tripStores.js"
   export let trip
 
   const handleClick = (trip) => {

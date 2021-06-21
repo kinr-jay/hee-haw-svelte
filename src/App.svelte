@@ -1,6 +1,8 @@
 <script>
 	// Component and Route Imports
-	import { Router, Route } from "svelte-routing"
+	import { onMount } from "svelte"
+	import { Router, Route, navigate } from "svelte-routing"
+	import ProtectedRoute from "./components/ProtectedRoute.svelte"
 	import Header from "./components/Header.svelte"
 	import Login from "./routes/Login.svelte"
 	import Register from "./routes/Register.svelte"
@@ -11,11 +13,19 @@
 	import Footer from "./components/Footer.svelte"
 
 	// Store Imports
-	import { logged } from "./stores.js"
+	import { jwt } from "./userStores.js"
 
-	let loggedIn
-	logged.subscribe(value => {
-		loggedIn = value
+	onMount(async () => {
+		const userjwt = window.localStorage["schemkel"]
+		if (userjwt) {
+			const stillValid = await jwt.checkJWT(userjwt)
+			if (stillValid) {
+				navigate("/calendar")
+			} else {
+				jwt.clearJWT()
+				navigate("/")
+			}
+		}
 	})
 
 </script>
@@ -25,11 +35,11 @@
 	<main>
 		<Route path="/" component={Login}/>
 		<!-- {#if loggedIn} -->
-		<Route path="/register" component={Register}/>
-		<Route path="/planner" component={Planner}/>
-		<Route path="/calendar/:tripId" component={TripPage}/>
-		<Route path="/calendar" component={Calendar}/>
-		<Route path="/account" component={Account}/>
+		<ProtectedRoute path="/register" component={Register}/>
+		<ProtectedRoute path="/planner" component={Planner}/>
+		<ProtectedRoute path="/calendar/:tripId" component={TripPage}/>
+		<ProtectedRoute path="/calendar" component={Calendar}/>
+		<ProtectedRoute path="/account" component={Account}/>
 		<!-- {/if} -->
 	</main>
 	<Footer />

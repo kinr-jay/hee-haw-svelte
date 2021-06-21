@@ -1,22 +1,38 @@
 <script>
+import { navigate } from "svelte-routing";
+import { jwt } from "../userStores.js"
+
   let email
   let password
+  const handleSubmit = async () => {
+    jwt.getJWT({
+      email: email,
+      password: password,
+    })
+  }
 </script>
 
 <style>
   form {
-    margin-top: 10vh;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   label {
     width: 260px;
+    margin: 5px 0;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
   }
+  p {
+    margin-bottom: 0;
+  }
 </style>
 
-<h1>Login to join the Hee-Haw!</h1>
-<form action="">
+<h1>Yee-haw! Welcome back!</h1>
+<form on:submit|preventDefault={handleSubmit}>
   <label for="email">
     email:
     <input type="email" class="email" id="email" placeholder="" bind:value={email}>
@@ -27,3 +43,6 @@
   </label>
   <button type="submit" class="submit-button">Log In</button>
 </form>
+
+<p>Are you new here? Then sign on up.</p>
+<button type="button" class="submit-button" on:click={() => navigate("/register")}>Register</button>

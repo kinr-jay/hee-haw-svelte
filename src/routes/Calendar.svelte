@@ -1,7 +1,7 @@
 <script>
   import TripCard from "../components/TripCard.svelte"
 
-  import { trips } from "../stores.js"
+  import { trips } from "../tripStores.js"
 
 </script>
 

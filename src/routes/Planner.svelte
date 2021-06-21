@@ -7,7 +7,7 @@
 
   import "./planner.css"
 
-  import { selectedTrip } from "../stores.js"
+  import { selectedTrip } from "../tripStores.js"
 
 
 </script>
