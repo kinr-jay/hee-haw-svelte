@@ -16,15 +16,8 @@
 	import { jwt } from "./userStores.js"
 
 	onMount(async () => {
-		const userjwt = window.localStorage["schemkel"]
-		if (userjwt) {
-			const stillValid = await jwt.checkJWT(userjwt)
-			if (stillValid) {
-				navigate("/calendar")
-			} else {
-				jwt.clearJWT()
-				navigate("/")
-			}
+		if ($jwt) {
+			navigate("/calendar")
 		}
 	})
 

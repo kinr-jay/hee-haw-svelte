@@ -9,7 +9,6 @@
 
   import { selectedTrip } from "../tripStores.js"
 
-
 </script>
 
 <style>

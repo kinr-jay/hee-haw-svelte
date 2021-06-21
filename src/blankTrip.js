@@ -1,0 +1,17 @@
+export const blankTrip = {
+  tripId: 0,
+  title: "",
+  description: "",
+  image: "",
+  startDate: "2021-07-01",
+  endDate: "2021-07-02",
+  area: "",
+  regs: "",
+  muster: "",
+  distance: 0,
+  elevation: 0,
+  groupSize: 0,
+  gearList: [],
+  team: [],
+  report: "",
+}

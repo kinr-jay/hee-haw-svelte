@@ -6,7 +6,7 @@
   export let path
   export let component
 
-  const isLoggedIn = jwt
+  $: isLoggedIn = $jwt
 </script>
 
 <style>
