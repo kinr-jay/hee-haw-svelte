@@ -42,6 +42,24 @@ export const user = createUser()
 const createJWT = () => {
   const { subscribe, set } = writable(localStorage["schmekel"])
 
+  // create a new user account and process a new JWT
+  const createUser = async (newUser) => {
+    return fetch(url + "/signup", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage["schmekel"] = JSON.stringify(data)
+        set(JSON.stringify(data))
+        return true
+      })
+      .catch((err) => console.error(err))
+  }
+
   // create a new JWT with email and password login credentials.
   const getJWT = async (loginCreds) => {
     return fetch(url + "/login", {
@@ -70,7 +88,7 @@ const createJWT = () => {
   return {
     subscribe,
     getJWT: getJWT,
-    // checkJWT: checkJWT,
+    createUser: createUser,
     clearJWT: clearJWT,
   }
 }

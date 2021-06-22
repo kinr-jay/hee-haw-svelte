@@ -18,13 +18,11 @@
 	<Header />
 	<main>
 		<Route path="/" component={Login}/>
-		<!-- {#if loggedIn} -->
-		<ProtectedRoute path="/register" component={Register}/>
+		<Route path="/register" component={Register}/>
 		<ProtectedRoute path="/planner" component={Planner}/>
 		<ProtectedRoute path="/calendar/:tripId" component={TripPage}/>
 		<ProtectedRoute path="/calendar" component={Calendar}/>
 		<ProtectedRoute path="/account" component={Account}/>
-		<!-- {/if} -->
 	</main>
 	<Footer />
 </Router>
