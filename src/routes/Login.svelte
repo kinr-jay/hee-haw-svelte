@@ -5,10 +5,13 @@ import { jwt } from "../userStores.js"
   let email
   let password
   const handleSubmit = async () => {
-    await jwt.getJWT({
+    jwt.getJWT({
       email: email,
       password: password,
-    })
+    }).then((value) => {
+      if (value) {
+        navigate("/calendar")
+      }})
   }
 </script>
 

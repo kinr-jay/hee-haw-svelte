@@ -12,15 +12,6 @@
 	import Account from "./routes/Account.svelte"
 	import Footer from "./components/Footer.svelte"
 
-	// Store Imports
-	import { jwt } from "./userStores.js"
-
-	onMount(async () => {
-		if ($jwt) {
-			navigate("/calendar")
-		}
-	})
-
 </script>
 
 <Router primary={false}>

@@ -1,5 +1,4 @@
 export const blankTrip = {
-  tripId: 0,
   title: "",
   description: "",
   image: "",

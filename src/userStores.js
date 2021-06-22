@@ -1,3 +1,4 @@
+import { navigate } from "svelte-routing"
 import { writable } from "svelte/store"
 
 // Heroku Backend Route URL
@@ -7,7 +8,7 @@ const url = "https://hee-haw-go.herokuapp.com"
 const createUser = () => {
   const { subscribe, set } = writable(null)
 
-  const getUser = (jwt) => {
+  const getUser = async (jwt) => {
     fetch(url + "/users/" + jwt.userId, {
       method: "get",
       headers: {
@@ -19,9 +20,16 @@ const createUser = () => {
       .catch((err) => console.error(err))
   }
 
+  const logout = () => {
+    set(null)
+    jwt.clearJWT()
+    navigate("/")
+  }
+
   return {
     subscribe,
     getUser: getUser,
+    logout: logout,
   }
 }
 export const user = createUser()
@@ -36,7 +44,7 @@ const createJWT = () => {
 
   // create a new JWT with email and password login credentials.
   const getJWT = async (loginCreds) => {
-    fetch(url + "/login", {
+    return fetch(url + "/login", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -46,11 +54,9 @@ const createJWT = () => {
       .then((res) => res.json())
       .then((data) => {
         localStorage["schmekel"] = JSON.stringify(data)
-        console.log(localStorage["schmekel"])
-        console.log(data)
-        set(data)
+        set(JSON.stringify(data))
         user.getUser(data)
-        console.log(data.message)
+        return true
       })
       .catch((err) => console.error(err))
   }

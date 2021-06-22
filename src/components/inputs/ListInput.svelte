@@ -1,14 +1,33 @@
 <script>
   export let label
   export let name
-  export let data
+  export let value
 
-  let newDatum = ""
+  let newItem = ""
 
   const handleClick = () => {
-    data.push(newDatum)
+    value = [...value, newItem]
+    newItem = ""
   }
 </script>
+
+<div class="input-container">
+  <p>{label}</p>
+  <div class="list-container">
+    <div>
+      <ul class={name}>
+        {#each value as item}
+          <li>{item}</li>
+        {/each}
+      </ul>
+    </div>
+    <div class="list-input">
+      <label for={name}>Gear:</label>
+      <input type="text" id={name} name={name} bind:value={newItem}>
+      <button type="button" on:click={handleClick}>Add to Gear List</button>
+    </div>
+  </div>
+</div>
 
 <style>
   .input-container {
@@ -40,21 +59,3 @@
   }
 
 </style>
-
-<div class="input-container">
-  <p>{label}</p>
-  <div class="list-container">
-    <div>
-      <ul class={name}>
-        {#each data as datum}
-          <li>{datum}</li>
-        {/each}
-      </ul>
-    </div>
-    <div class="list-input">
-      <label for={name}>Gear:</label>
-      <input type="text" id={name} name={name} bind:value={newDatum}>
-      <button on:click={handleClick}>Add to Gear List</button>
-    </div>
-  </div>
-</div>

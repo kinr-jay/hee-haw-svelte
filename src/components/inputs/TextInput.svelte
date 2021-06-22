@@ -1,7 +1,7 @@
 <script>
   export let label
   export let name
-  export let data
+  export let value
 </script>
 
 <style>
@@ -19,5 +19,5 @@
 
 <div class="input-container">
   <label for={name}>{label}:</label>
-  <input type="text" id={name} name={name} bind:value={data}>
+  <input type="text" id={name} name={name} bind:value={value}>
 </div>

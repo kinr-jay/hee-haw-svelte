@@ -3,9 +3,11 @@
   import { user } from "../userStores.js"
   import { jwt } from "../userStores.js"
 
-  onMount(() => {
+  onMount(async () => {
     user.getUser(JSON.parse($jwt))
   })
+
+  // const handleEditAccount = () => {}
 
 </script>
 
@@ -25,7 +27,8 @@
     <h4>Password</h4>
     <p>Lol did you think I was just going to list it here?</p>
   </div>
-  <button>Edit Account Information</button>
+  <!-- <button type="button" on:click={handleEditAccount}>Edit Account Information</button> -->
+  <button type="button" on:click={() => user.logout()}>Logout</button>
 {:else}
   <h2>loading...</h2>
 {/if}

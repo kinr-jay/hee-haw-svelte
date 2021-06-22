@@ -1,7 +1,7 @@
 <script>
   export let label
   export let name
-  export let data
+  export let value
 </script>
 
 <style>
@@ -29,7 +29,7 @@
     type="textarea"
     id={name}
     name={name}
-    bind:value={data}
+    bind:value={value}
     rows="5"
     cols="65"
   ></textarea>

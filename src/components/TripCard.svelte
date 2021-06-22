@@ -1,12 +1,7 @@
 <script>
   import { navigate } from "svelte-routing"
-  import { selectedTrip } from "../tripStores.js"
   export let trip
 
-  const handleClick = (trip) => {
-    selectedTrip.set(trip)
-    navigate("/calendar/" + trip.tripId)
-  }
 </script>
 
 <style>
@@ -55,6 +50,6 @@
     <p>{trip.area}</p>
     <p>Start Date: {trip.startDate}</p>
     <p>End Date: {trip.endDate}</p>
-    <button on:click={() => handleClick(trip)} class="details-button">Check out the details.</button>
+    <button on:click={() => navigate("/calendar/" + trip.tripId)} class="details-button">Check out the details.</button>
   </div>
 </div>
