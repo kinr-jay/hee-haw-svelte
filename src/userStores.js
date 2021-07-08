@@ -69,8 +69,15 @@ const createJWT = () => {
       },
       body: JSON.stringify(loginCreds),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json()
+        } else {
+          throw new Error("Invalid login.")
+        }
+      })
       .then((data) => {
+        console.log(data)
         localStorage["schmekel"] = JSON.stringify(data)
         set(JSON.stringify(data))
         user.getUser(data)
