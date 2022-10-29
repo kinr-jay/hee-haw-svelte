@@ -23,6 +23,23 @@ const createUser = () => {
       .catch((err) => console.error(err))
   }
 
+  const updateUser = async (jwt, updatedUser) => {
+    return fetch(url + "/users/" + jwt.userId, {
+      method: "put",
+      headers: {
+        Authorization: "Bearer " + jwt.token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        set(data)
+        return true
+      })
+      .catch((err) => console.error(err))
+  }
+
   const logout = () => {
     set(null)
     jwt.clearJWT()
@@ -32,6 +49,7 @@ const createUser = () => {
   return {
     subscribe,
     getUser: getUser,
+    updateUser: updateUser,
     logout: logout,
   }
 }

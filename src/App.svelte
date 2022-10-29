@@ -1,6 +1,5 @@
 <script>
 	// Component and Route Imports
-	import { onMount } from "svelte"
 	import { Router, Route, navigate } from "svelte-routing"
 	import ProtectedRoute from "./components/ProtectedRoute.svelte"
 	import Header from "./components/Header.svelte"
@@ -10,6 +9,7 @@
 	import Calendar from "./routes/Calendar.svelte"
 	import TripPage from "./routes/TripPage.svelte"
 	import Account from "./routes/Account.svelte"
+	import AccountUpdate from "./routes/AccountUpdate.svelte"
 	import Footer from "./components/Footer.svelte"
 
 </script>
@@ -23,6 +23,7 @@
 		<ProtectedRoute path="/calendar/:tripId" component={TripPage}/>
 		<ProtectedRoute path="/calendar" component={Calendar}/>
 		<ProtectedRoute path="/account" component={Account}/>
+		<ProtectedRoute path="/account-update" component={AccountUpdate}/>
 	</main>
 	<Footer />
 </Router>

@@ -2,17 +2,16 @@
   import { onMount } from "svelte"
   import { user } from "../userStores.js"
   import { jwt } from "../userStores.js"
+  import { navigate } from "svelte-routing"
 
   onMount(async () => {
     user.getUser(JSON.parse($jwt))
   })
-
-  // const handleEditAccount = () => {}
-
+  
 </script>
 
 <style>
-
+  
 </style>
 
 {#if $user}
@@ -24,10 +23,8 @@
     <p>{$user.phone}</p>
     <h4>Email</h4>
     <p>{$user.email}</p>
-    <h4>Password</h4>
-    <p>Lol did you think I was just going to list it here?</p>
   </div>
-  <!-- <button type="button" on:click={handleEditAccount}>Edit Account Information</button> -->
+  <button type="button" on:click={() => navigate("/account-update/")}>Edit Account Information</button>
   <button type="button" on:click={() => user.logout()}>Logout</button>
 {:else}
   <h2>loading...</h2>
