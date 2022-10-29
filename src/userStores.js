@@ -19,7 +19,10 @@ const createUser = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => set(data))
+      .then((data) => {
+        console.log("getUser data", data)
+        set(data)
+      })
       .catch((err) => console.error(err))
   }
 

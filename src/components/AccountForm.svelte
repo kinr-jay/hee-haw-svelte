@@ -44,7 +44,7 @@
     <input type="password" id="password" placeholder="" bind:value={value.password}>
   </label>
   {/if}
-  <!-- <label for="city">
+  <label for="city">
     city:
     <input type="text" id="city" placeholder="" bind:value={value.location.city}>
   </label>
@@ -55,6 +55,6 @@
   <label for="country">
     country:
     <input type="text" id="country" placeholder="" bind:value={value.location.country}>
-  </label> -->
+  </label>
   <button type="submit" class="submit-button">{buttonLabel}</button>
 </form>

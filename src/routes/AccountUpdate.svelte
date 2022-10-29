@@ -9,6 +9,7 @@
     user.getUser(JSON.parse($jwt))
   })
   let accountInfo = $user
+  console.log('accountInfo', accountInfo)
 
   const handleSubmit = async () => {
     user.updateUser(JSON.parse($jwt), accountInfo)
