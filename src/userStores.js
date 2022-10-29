@@ -2,7 +2,10 @@ import { navigate } from "svelte-routing"
 import { writable } from "svelte/store"
 
 // Heroku Backend Route URL
-const url = "https://hee-haw-go.herokuapp.com"
+// const url = "https://hee-haw-go.herokuapp.com"
+
+// Local Backend Route URL
+const url = "http://localhost:8000"
 
 // This function creates a user store that is used to hold a user's account information.
 const createUser = () => {
@@ -53,6 +56,7 @@ const createJWT = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         localStorage["schmekel"] = JSON.stringify(data)
         set(JSON.stringify(data))
         return true
@@ -70,11 +74,9 @@ const createJWT = () => {
       body: JSON.stringify(loginCreds),
     })
       .then((res) => {
-        if (res.status === 200) {
-          return res.json()
-        } else {
-          throw new Error("Invalid login.")
-        }
+        // if (res.status === 200) {
+        return res.json()
+        // }
       })
       .then((data) => {
         console.log(data)

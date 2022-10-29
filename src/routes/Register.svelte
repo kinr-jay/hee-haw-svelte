@@ -44,15 +44,15 @@
 <form on:submit|preventDefault={handleSubmit}>
   <label for="firstName">
     first name:
-    <input type="firstName" id="firstName" placeholder="" bind:value={newUser.firstName}>
+    <input type="text" id="firstName" placeholder="" bind:value={newUser.firstName}>
   </label>
   <label for="lastName">
     last name:
-    <input type="lastName" id="lastName" placeholder="" bind:value={newUser.lastName}>
+    <input type="text" id="lastName" placeholder="" bind:value={newUser.lastName}>
   </label>
   <label for="phone">
     phone:
-    <input type="phone" id="phone" placeholder="" bind:value={newUser.phone}>
+    <input type="text" id="phone" placeholder="" bind:value={newUser.phone}>
   </label>
   <label for="email">
     email:
@@ -64,15 +64,15 @@
   </label>
   <label for="city">
     city:
-    <input type="city" id="city" placeholder="" bind:value={newUser.city}>
+    <input type="text" id="city" placeholder="" bind:value={newUser.city}>
   </label>
   <label for="state">
     state:
-    <input type="state" id="state" placeholder="" bind:value={newUser.state}>
+    <input type="text" id="state" placeholder="" bind:value={newUser.state}>
   </label>
   <label for="country">
     country:
-    <input type="country" id="country" placeholder="" bind:value={newUser.country}>
+    <input type="text" id="country" placeholder="" bind:value={newUser.country}>
   </label>
   <button type="submit" class="submit-button">Sign up</button>
 </form>
