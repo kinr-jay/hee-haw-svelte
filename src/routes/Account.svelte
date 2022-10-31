@@ -12,7 +12,10 @@
 </script>
 
 <style>
-  
+  .delete {
+    background-color: red;
+    margin-top: 30px;
+  }
 </style>
 
 {#if $user}
@@ -29,6 +32,8 @@
   </div>
   <button type="button" on:click={() => navigate("/account-update/")}>Edit Account Information</button>
   <button type="button" on:click={() => user.logout()}>Logout</button>
+  <br/>
+  <button type="button" on:click={() => navigate("/are-you-sure/")} class="delete">Delete Account</button>
 {:else}
   <h2>loading...</h2>
 {/if}

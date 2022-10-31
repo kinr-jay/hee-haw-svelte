@@ -10,6 +10,7 @@
 	import TripPage from "./routes/TripPage.svelte"
 	import Account from "./routes/Account.svelte"
 	import AccountUpdate from "./routes/AccountUpdate.svelte"
+	import AreYouSure from "./routes/AreYouSure.svelte"
 	import Footer from "./components/Footer.svelte"
 
 </script>
@@ -24,6 +25,7 @@
 		<ProtectedRoute path="/calendar" component={Calendar}/>
 		<ProtectedRoute path="/account" component={Account}/>
 		<ProtectedRoute path="/account-update" component={AccountUpdate}/>
+		<ProtectedRoute path="/are-you-sure" component={AreYouSure}/>
 	</main>
 	<Footer />
 </Router>
