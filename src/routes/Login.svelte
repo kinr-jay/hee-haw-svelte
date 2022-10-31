@@ -12,6 +12,8 @@ import { jwt } from "../userStores.js"
     }).then((value) => {
       if (value) {
         navigate("/calendar")
+      } else {
+        alert("Invalid login, please try again.")
       }})
   }
 </script>

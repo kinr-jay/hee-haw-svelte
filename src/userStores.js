@@ -2,7 +2,10 @@ import { navigate } from "svelte-routing"
 import { writable } from "svelte/store"
 
 // Heroku Backend Route URL
-const url = "https://hee-haw-go.herokuapp.com"
+// const url = "https://hee-haw-go.herokuapp.com"
+
+// Local Backend Route URL
+const url = "http://localhost:8000"
 
 // This function creates a user store that is used to hold a user's account information.
 const createUser = () => {
@@ -20,6 +23,26 @@ const createUser = () => {
       .catch((err) => console.error(err))
   }
 
+  const updateUser = async (jwt, updatedUser) => {
+    return fetch(url + "/users/" + jwt.userId, {
+      method: "put",
+      headers: {
+        Authorization: "Bearer " + jwt.token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data === 401) {
+          return false
+        }
+        set(data)
+        return true
+      })
+      .catch((err) => console.error(err))
+  }
+
   const logout = () => {
     set(null)
     jwt.clearJWT()
@@ -29,6 +52,7 @@ const createUser = () => {
   return {
     subscribe,
     getUser: getUser,
+    updateUser: updateUser,
     logout: logout,
   }
 }
@@ -53,6 +77,7 @@ const createJWT = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         localStorage["schmekel"] = JSON.stringify(data)
         set(JSON.stringify(data))
         return true
@@ -69,8 +94,13 @@ const createJWT = () => {
       },
       body: JSON.stringify(loginCreds),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        // if (res.status === 200) {
+        return res.json()
+        // }
+      })
       .then((data) => {
+        console.log(data)
         localStorage["schmekel"] = JSON.stringify(data)
         set(JSON.stringify(data))
         user.getUser(data)
