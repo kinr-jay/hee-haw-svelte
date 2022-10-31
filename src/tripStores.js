@@ -2,7 +2,11 @@ import { writable } from "svelte/store"
 import { blankTrip } from "./blankTrip.js"
 import { navigate } from "svelte-routing"
 
-const url = "https://hee-haw-go.herokuapp.com"
+// Heroku Backend Route URL
+// const url = "https://hee-haw-go.herokuapp.com"
+
+// Local Backend Route URL
+const url = "http://localhost:8000"
 
 export const selectedTrip = writable(blankTrip)
 
@@ -24,7 +28,9 @@ const allTrips = () => {
           return res.json()
         }
       })
-      .then((data) => set(data))
+      .then((data) => {
+        if (data.status === 200) set(data.trips)
+      })
   }
 
   return {
@@ -48,7 +54,9 @@ const singleTrip = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => set(data))
+      .then((data) => {
+        if (data.status === 200) set(data.trip)
+      })
   }
 
   // POST create a new trip
@@ -56,19 +64,18 @@ const singleTrip = () => {
     fetch(url + "/trips", {
       method: "post",
       headers: {
-        "Authorization": "Bearer " + jwt.token,
+        Authorization: "Bearer " + jwt.token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(trip),
+    }).then((res) => {
+      if (res.status === 200) {
+        selectedTrip.set(blankTrip)
+        navigate("/calendar")
+      } else {
+        alert("Unable to create trip.")
+      }
     })
-      .then((res) => {
-        if (res.status === 200) {
-          selectedTrip.set(blankTrip)
-          navigate("/calendar")
-        } else {
-          alert("Unable to create trip.")
-        }
-      })
   }
 
   // PUT update a trip
@@ -76,19 +83,18 @@ const singleTrip = () => {
     fetch(url + "/trips/" + trip.tripId, {
       method: "put",
       headers: {
-        "Authorization": "Bearer " + jwt.token,
+        Authorization: "Bearer " + jwt.token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(trip),
+    }).then((res) => {
+      if (res.status === 200) {
+        selectedTrip.set(blankTrip)
+        navigate("/calendar")
+      } else {
+        alert("Unable to update trip.")
+      }
     })
-      .then((res) => {
-        if (res.status === 200) {
-          selectedTrip.set(blankTrip)
-          navigate("/calendar")
-        } else {
-          alert("Unable to update trip.")
-        }
-      })
   }
 
   // PUT add user to team
@@ -96,16 +102,15 @@ const singleTrip = () => {
     fetch(url + "/trips/" + tripId + "/add/" + jwt.userId, {
       method: "put",
       headers: {
-        "Authorization": "Bearer " + jwt.token,
+        Authorization: "Bearer " + jwt.token,
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        navigate("/calendar/" + tripId, { replace: true })
+      } else {
+        alert("Unable to join trip.")
       }
     })
-      .then((res) => {
-        if (res.status === 200) {
-          navigate("/calendar/" + tripId, { replace: true })
-        } else {
-          alert("Unable to join trip.")
-        }
-      })
   }
 
   // PUT remove user from team
@@ -113,16 +118,15 @@ const singleTrip = () => {
     fetch(url + "/trips/" + tripId + "/remove/" + jwt.userId, {
       method: "put",
       headers: {
-        "Authorization": "Bearer " + jwt.token,
+        Authorization: "Bearer " + jwt.token,
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        navigate("/calendar/" + tripId, { replace: true })
+      } else {
+        alert("Unable to remove from trip.")
       }
     })
-      .then((res) => {
-        if (res.status === 200) {
-          navigate("/calendar/" + tripId, { replace: true })
-        } else {
-          alert("Unable to remove from trip.")
-        }
-      })
   }
 
   return {

@@ -43,17 +43,22 @@ const createUser = () => {
       .catch((err) => console.error(err))
   }
 
-  const deleteUser = async (jwt) => {
+  const deleteUser = async (jwt, password) => {
     fetch(url + "/users/" + jwt.userId, {
       method: "delete",
       headers: {
         Authorization: "Bearer " + jwt.token,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify({ password: password }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data)
-        logout()
+        if (data.status === 200) {
+          logout()
+        } else {
+          alert("Incorrect Password.")
+        }
       })
       .catch((err) => console.error(err))
   }
