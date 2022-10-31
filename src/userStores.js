@@ -43,6 +43,21 @@ const createUser = () => {
       .catch((err) => console.error(err))
   }
 
+  const deleteUser = async (jwt) => {
+    fetch(url + "/users/" + jwt.userId, {
+      method: "delete",
+      headers: {
+        Authorization: "Bearer " + jwt.token,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data", data)
+        logout()
+      })
+      .catch((err) => console.error(err))
+  }
+
   const logout = () => {
     set(null)
     jwt.clearJWT()
@@ -53,6 +68,7 @@ const createUser = () => {
     subscribe,
     getUser: getUser,
     updateUser: updateUser,
+    deleteUser: deleteUser,
     logout: logout,
   }
 }
@@ -77,7 +93,6 @@ const createJWT = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         localStorage["schmekel"] = JSON.stringify(data)
         set(JSON.stringify(data))
         return true
@@ -100,7 +115,6 @@ const createJWT = () => {
         // }
       })
       .then((data) => {
-        console.log(data)
         localStorage["schmekel"] = JSON.stringify(data)
         set(JSON.stringify(data))
         user.getUser(data)
