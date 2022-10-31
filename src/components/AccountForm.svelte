@@ -56,5 +56,11 @@
     country:
     <input type="text" id="country" placeholder="" bind:value={value.location.country}>
   </label>
+  {#if isNewUser}
+  <label for="password">
+    Verify password:
+    <input type="password" id="password" placeholder="" bind:value={value.password}>
+  </label>
+  {/if}
   <button type="submit" class="submit-button">{buttonLabel}</button>
 </form>

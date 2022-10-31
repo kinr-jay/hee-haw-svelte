@@ -26,4 +26,9 @@
 </style>
 
 <h1>Update your account information:</h1>
-<AccountForm isNewUser={false} handleSubmit={handleSubmit} bind:value={accountInfo} buttonLabel="Update Account"/>
+<AccountForm
+  isNewUser={false}
+  handleSubmit={handleSubmit}
+  bind:value={accountInfo}
+  buttonLabel="Update Account"
+/>

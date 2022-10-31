@@ -7,7 +7,8 @@
   onMount(async () => {
     user.getUser(JSON.parse($jwt))
   })
-  
+  // const testURL = __myapp.env.PRODUCTION
+  // console.log("testURL", testURL)
 </script>
 
 <style>
@@ -23,6 +24,8 @@
     <p>{$user.phone}</p>
     <h4>Email</h4>
     <p>{$user.email}</p>
+    <h4>Location</h4>
+    <p>{$user.location.city}, {$user.location.state}, {$user.location.country}</p>
   </div>
   <button type="button" on:click={() => navigate("/account-update/")}>Edit Account Information</button>
   <button type="button" on:click={() => user.logout()}>Logout</button>
