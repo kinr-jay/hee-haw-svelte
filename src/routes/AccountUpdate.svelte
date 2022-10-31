@@ -16,6 +16,8 @@
       .then((value) => {
       if (value) {
         navigate("/account")
+      } else {
+        alert("Incorrect password.")
       }})
   }
   

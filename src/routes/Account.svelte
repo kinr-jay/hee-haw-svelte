@@ -25,7 +25,7 @@
     <h4>Email</h4>
     <p>{$user.email}</p>
     <h4>Location</h4>
-    <p>{$user.location.city}, {$user.location.state}, {$user.location.country}</p>
+    <!-- <p>{$user.location.city}, {$user.location.state}, {$user.location.country}</p> -->
   </div>
   <button type="button" on:click={() => navigate("/account-update/")}>Edit Account Information</button>
   <button type="button" on:click={() => user.logout()}>Logout</button>

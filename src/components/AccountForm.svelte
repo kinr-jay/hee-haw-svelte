@@ -16,8 +16,9 @@
     width: 260px;
     margin: 5px 0;
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
+    text-align: left;
   }
 </style>
 
@@ -56,9 +57,9 @@
     country:
     <input type="text" id="country" placeholder="" bind:value={value.location.country}>
   </label>
-  {#if isNewUser}
+  {#if !isNewUser}
   <label for="password">
-    Verify password:
+    verify password:
     <input type="password" id="password" placeholder="" bind:value={value.password}>
   </label>
   {/if}

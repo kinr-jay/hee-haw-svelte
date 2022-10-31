@@ -34,6 +34,9 @@ const createUser = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (data === 401) {
+          return false
+        }
         set(data)
         return true
       })
