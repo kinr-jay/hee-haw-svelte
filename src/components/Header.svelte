@@ -29,7 +29,7 @@
 <header>
   <Link to="/" ><span class="logo">Hee-Haw</span></Link>
   <div class="nav-links">
-    <Link to="/planner">Plan a Trip</Link>
+    <Link to="/create-trip">Plan a Trip</Link>
     <Link to="/calendar">Calendar</Link>
     <Link to="/account">Account</Link>
   </div>

@@ -8,7 +8,7 @@
 
   const handleEditTrip = () => {
     $selectedTrip = $trip
-    navigate("/planner")
+    navigate("/update-trip/" + $trip.tripId)
   }
 
   const handleJoinTeam = async () => {
@@ -23,6 +23,7 @@
 
   onMount(() => {
     trip.load(JSON.parse($jwt), tripId)
+    console.log('trip', $trip)
   })
 
 </script>
