@@ -5,35 +5,20 @@
   import ListInput from "../components/inputs/ListInput.svelte"
   import NumberInput from "../components/inputs/NumberInput.svelte"
 
-  import "./planner.css"
-
+  import { blankTrip } from "../blankTrip.js"
   import { selectedTrip, trip } from "../tripStores.js"
-  import { jwt } from "../userStores";
 
+  export let handleSubmit
+  export let handleFileSelect
+  export let tripExists
+  export let buttonLabel
+  
   let file = null
 
-  const handleSubmit = async () => {
-    if (file) {
-      const imageData = new FormData()
-      imageData.append("file", file)
-      imageData.append("upload_preset", "Hee-Haw-Tiles")
-      const options = {
-        method: "post",
-        body: imageData,
-      }
-      await fetch("https://api.Cloudinary.com/v1_1/kinr-jay/image/upload", options)
-        .then((res) => res.json())
-        .then((data) => $selectedTrip.image = data.secure_url)
-    }
-    if ($selectedTrip.tripId) {
-      trip.put(JSON.parse($jwt), $selectedTrip)
-    } else {
-      trip.post(JSON.parse($jwt), $selectedTrip)
-    }
-  }
-
-  const handleFileSelect = (event) => {
-    file = event.target.files[0]
+  if (!tripExists) {
+    $selectedTrip = blankTrip
+  } else {
+    $selectedTrip = $trip
   }
 
 </script>
@@ -42,7 +27,6 @@
 
 </style>
 
-<h2>Trip Planner</h2>
 <form on:submit|preventDefault={handleSubmit}>
   <TextInput label="Title" name="title" bind:value={$selectedTrip.title}/>
   <TextInput label="Area" name="area" bind:value={$selectedTrip.area}/>
@@ -57,5 +41,5 @@
   <TextAreaInput label="Muster Point" name="muster" bind:value={$selectedTrip.muster}/>
   <TextAreaInput label="Regulations" name="regs" bind:value={$selectedTrip.regs}/>
   <ListInput label="Gear List" name="gearList" bind:value={$selectedTrip.gearList}/>
-  <button type="submit" class="submit-button">Put it on the books!</button>
+  <button type="submit" class="submit-button">{buttonLabel}</button>
 </form>
